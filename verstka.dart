@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.green,
         body: Column(
           children: [
+          //  tabl2(),
             //строка
             verh(),
             Center(
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
             forImage(),
             Container(height: 20, width: 100, color: Colors.green),
             Center(child: Text("some text")),
-            tabl(),
+            
+         //   tabl(),
+            tabl2()
           ],
         ),
       ),
@@ -67,7 +70,7 @@ class MyApp extends StatelessWidget {
               children: [
                 tableRow(),
                 tableRow(),
-
+              
                 //  tableRow(),
                 //  tableRow()
               ],
@@ -114,6 +117,60 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  
+  
+  
+  Widget tabl2() {
+   return Expanded(child: GridView.count(
+  primary: false,
+  padding: const EdgeInsets.all(20),
+  crossAxisSpacing: 10,
+  mainAxisSpacing: 10,
+  crossAxisCount: 2,
+     childAspectRatio: 3.5, 
+  children: <Widget>[
+      Container(
+          color: Colors.amber,
+          child: Column(
+            children: [
+              Text('550 cal', style: TextStyle(color: Colors.blue)),
+              Text('Calories', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+        ),
+     Container(
+          color: Colors.amber,
+          child: Column(
+            children: [
+              Text('550 cal', style: TextStyle(color: Colors.blue)),
+              Text('Calories', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+    ),
+      Container(
+          color: Colors.amber,
+          child: Column(
+            children: [
+              Text('550 cal', style: TextStyle(color: Colors.blue)),
+              Text('Calories', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+    ),
+   Container(
+          color: Colors.amber,
+          child: Column(
+            children: [
+              Text('550 cal', style: TextStyle(color: Colors.blue)),
+              Text('Calories', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+    ),
+ 
+  ],
+));
+  }
+  
+  
   Widget forImage() {
     return Center(
       child: Container(
