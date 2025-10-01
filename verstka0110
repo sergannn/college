@@ -1,0 +1,127 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter App!!',
+      theme: ThemeData(
+        colorSchemeSeed: Colors.indigo,
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.blue,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+      ),
+      home: const MyHomePage(title: 'Flutter Example App'),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+Widget header() {
+return  Row(
+      //crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:[Text("hello"),Text('avatar')]);
+}
+Widget news() {
+  return        Container(width:40,height:40,color:Colors.red);
+}
+
+
+class _MyHomePageState extends State<MyHomePage> 
+with WidgetsBindingObserver {
+  int _counter = 0;
+ @override
+  void initState() {
+    super.initState();
+    print('init state');
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    print(state);
+    if (state == AppLifecycleState.resumed) {
+      print('Приложение возобновлено');
+      // Здесь можно выполнить нужные действия
+    }
+    }
+
+
+  @override
+  Widget build(BuildContext context) {
+  
+    return Scaffold(body:
+Column(children:[
+    Container(
+    color:Colors.green,
+    padding:EdgeInsets.all(10),
+    child:
+  Column(children:[//1ый
+    //hello tony
+      Container(
+    color:Colors.brown,
+    padding:EdgeInsets.all(20),
+    child:
+    Column(children:[
+     header(),
+        Container(
+    color:Colors.brown,
+    padding:EdgeInsets.all(20),child:
+     Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    
+      children:[
+        news(),news(),news(),news()
+     ]))
+  ])),
+  Container(
+    color:Colors.black,
+    padding:EdgeInsets.all(10),
+    child:
+    Column(children:[
+    Container(height:40,color:Colors.blue),
+    Container(height:40,color:Color.fromARGB(255, 99, 15, 70)),
+    Container(height:70,color:Colors.red,
+      child:Row(children:[
+        Container(width:200,height:60, color:Colors.brown),
+        Column(children: [
+          Container(width:30,height:20,color:Colors.grey),
+          SizedBox(height:10),
+          Container(width:30,height:30, color:Colors.brown),
+          
+        ],)
+      ])),
+    Container(height:40,color:Colors.blue)
+    ]))]))]));
+  }
+}
+  
+
